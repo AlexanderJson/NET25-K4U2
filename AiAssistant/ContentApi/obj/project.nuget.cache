@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "9VuCDSbRqFo=",
+  "dgSpecHash": "/YBC8V9MBOU=",
   "success": true,
   "projectFilePath": "C:\\Users\\alexa\\Desktop\\skola\\K4U2\\NET25-K4U2\\AiAssistant\\ContentApi\\ContentApi.csproj",
   "expectedPackageFiles": [
@@ -9,7 +9,8 @@
     "C:\\Users\\alexa\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\10.0.5\\microsoft.entityframeworkcore.abstractions.10.0.5.nupkg.sha512",
     "C:\\Users\\alexa\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\10.0.5\\microsoft.entityframeworkcore.analyzers.10.0.5.nupkg.sha512",
     "C:\\Users\\alexa\\.nuget\\packages\\microsoft.entityframeworkcore.inmemory\\10.0.5\\microsoft.entityframeworkcore.inmemory.10.0.5.nupkg.sha512",
-    "C:\\Users\\alexa\\.nuget\\packages\\microsoft.openapi\\2.0.0\\microsoft.openapi.2.0.0.nupkg.sha512"
+    "C:\\Users\\alexa\\.nuget\\packages\\microsoft.openapi\\2.0.0\\microsoft.openapi.2.0.0.nupkg.sha512",
+    "C:\\Users\\alexa\\.nuget\\packages\\scalar.aspnetcore\\2.13.22\\scalar.aspnetcore.2.13.22.nupkg.sha512"
   ],
   "logs": []
 }
