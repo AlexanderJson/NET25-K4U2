@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="ContentApi/ContentApi.csproj" />
+  <Project Path="LlmProxyApi/LlmProxyApi.csproj" />
+</Solution>
