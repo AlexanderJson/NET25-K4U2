@@ -36,3 +36,11 @@ C:\Users\alexa\Desktop\skola\K4U2\NET25-K4U2\AiAssistant\ContentApi\obj\Debug\ne
 C:\Users\alexa\Desktop\skola\K4U2\NET25-K4U2\AiAssistant\ContentApi\obj\Debug\net10.0\ContentApi.pdb
 C:\Users\alexa\Desktop\skola\K4U2\NET25-K4U2\AiAssistant\ContentApi\obj\Debug\net10.0\ContentApi.genruntimeconfig.cache
 C:\Users\alexa\Desktop\skola\K4U2\NET25-K4U2\AiAssistant\ContentApi\obj\Debug\net10.0\ref\ContentApi.dll
+C:\Users\alexa\Desktop\skola\K4U2\NET25-K4U2\AiAssistant\ContentApi\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\alexa\Desktop\skola\K4U2\NET25-K4U2\AiAssistant\ContentApi\bin\Debug\net10.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\alexa\Desktop\skola\K4U2\NET25-K4U2\AiAssistant\ContentApi\bin\Debug\net10.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\alexa\Desktop\skola\K4U2\NET25-K4U2\AiAssistant\ContentApi\bin\Debug\net10.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\alexa\Desktop\skola\K4U2\NET25-K4U2\AiAssistant\ContentApi\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\alexa\Desktop\skola\K4U2\NET25-K4U2\AiAssistant\ContentApi\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\alexa\Desktop\skola\K4U2\NET25-K4U2\AiAssistant\ContentApi\bin\Debug\net10.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\alexa\Desktop\skola\K4U2\NET25-K4U2\AiAssistant\ContentApi\bin\Debug\net10.0\System.IdentityModel.Tokens.Jwt.dll
