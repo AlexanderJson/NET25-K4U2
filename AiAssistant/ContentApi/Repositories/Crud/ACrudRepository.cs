@@ -9,38 +9,38 @@ public abstract class ACrudRepository<M>(AppDbContext db) : ICrudRepository<M> w
     protected readonly DbSet<M> _set = db.Set<M>();
 
     
-    public virtual async Task<M> CreateAsync(M model)
+    public virtual async Task<M> CreateAsync(M model, CancellationToken ct)
     {
-        await _set.AddAsync(model);
-        await _db.SaveChangesAsync();
+        await _set.AddAsync(model, ct);
+        await _db.SaveChangesAsync(ct);
         return model;
     }
 
-    public virtual async Task DeleteAsync(Guid id)
+    public virtual async Task DeleteAsync(Guid id, CancellationToken ct)
     {
-        var entity = await _set.FindAsync(id);
+        var entity = await _set.FindAsync([id], ct);
         if (entity is null) return;
 
         _set.Remove(entity);
-        await _db.SaveChangesAsync();
+        await _db.SaveChangesAsync(ct);
     }
 
-    public virtual async Task<IReadOnlyList<M>> GetAllAsync()
+    public virtual async Task<IReadOnlyList<M>> GetAllAsync(CancellationToken ct)
     {
         return await _set
             .AsNoTracking()
-            .ToListAsync();
+            .ToListAsync(ct);
     }
 
-    public virtual async Task<M?> GetByIdAsync(Guid id)
+    public virtual async Task<M?> GetByIdAsync(Guid id, CancellationToken ct)
     {
-        return await _set.FindAsync(id);
+        return await _set.FindAsync([id], ct);
     }
 
-    public virtual async Task<M> UpdateAsync(M model)
+    public virtual async Task<M> UpdateAsync(M model, CancellationToken ct)
     {
         _set.Update(model);
-        await _db.SaveChangesAsync();
+        await _db.SaveChangesAsync(ct);
         return model;
     }
 }

@@ -1,4 +1,6 @@
 using AiAssistant.ContentApi.Data;
+using AiAssistant.ContentApi.DTO;
+using AiAssistant.ContentApi.Models;
 using Microsoft.EntityFrameworkCore;
 using Scalar.AspNetCore;
 
@@ -15,7 +17,11 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
+builder.Services.AddScoped<ProjectRepository>();
+builder.Services.AddScoped<AiGenerationRepository>();
 
+builder.Services.AddScoped<IProjectService<ProjectRequest, ProjectResponse, Project>, ProjectService>();
+builder.Services.AddScoped<IAiGenerationService<AiGenerationRequest, AiGenerationResponse, AiGeneration>, AiGenerationService>();
 
 if (app.Environment.IsDevelopment())
 {

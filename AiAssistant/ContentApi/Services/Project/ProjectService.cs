@@ -6,39 +6,39 @@ public class ProjectService(ProjectRepository repository)
 {
     private readonly ProjectRepository _repository = repository;
 
-    public async Task<ProjectResponse> Create(ProjectRequest request)
+    public async Task<ProjectResponse> Create(ProjectRequest request, CancellationToken ct)
     {
         ValidateRequestArgs(request);
         var project = RequestToEntity(request);
-        var created = await _repository.CreateAsync(project);
+        var created = await _repository.CreateAsync(project,ct);
         return EntityToResponse(created);
     }
 
-    public async Task Delete(Guid id)
+    public async Task Delete(Guid id, CancellationToken ct)
     {
         Guard.Against.NullOrEmptyGuid(id);
-        await _repository.DeleteAsync(id);
+        await _repository.DeleteAsync(id,ct);
     }
 
-    public async Task<IReadOnlyList<ProjectResponse>> GetAll()
+    public async Task<IReadOnlyList<ProjectResponse>> GetAll( CancellationToken ct)
     {
-        var projects =  await _repository.GetAllAsync();
+        var projects =  await _repository.GetAllAsync(ct);
         return EntityToResponseList(projects);
 
     }
 
-    public async Task<ProjectResponse> GetById(Guid id)
+    public async Task<ProjectResponse> GetById(Guid id, CancellationToken ct)
     {
         Guard.Against.NullOrEmptyGuid(id);
-        var response =  await _repository.GetByIdAsync(id);
+        var response =  await _repository.GetByIdAsync(id,ct);
         return EntityToResponse(response!);
     }
 
-    public async Task<ProjectResponse> Update(Guid id,ProjectRequest request)
+    public async Task<ProjectResponse> Update(Guid id,ProjectRequest request, CancellationToken ct)
     {
         ValidateRequestArgs(request);
         var project = RequestToEntity(request);
-        var updated = await _repository.UpdateAsync(project);
+        var updated = await _repository.UpdateAsync(project,ct);
         return EntityToResponse(updated);
 
     }
