@@ -1,4 +1,5 @@
-public interface IProjectService<Req,Resp> : ICrudService<Req, Resp>
+public interface IProjectService<Req,Resp,Entity> : ICrudService<Req, Resp,Entity>
+
 {
     
 

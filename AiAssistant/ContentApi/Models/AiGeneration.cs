@@ -8,7 +8,6 @@ public class AiGeneration
 
     public string Response { get; set; } = null!;
 
-    public string? ModelType { get; set; }
 
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 

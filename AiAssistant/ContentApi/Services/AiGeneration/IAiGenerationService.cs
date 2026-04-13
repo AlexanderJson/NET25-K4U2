@@ -1,6 +1,3 @@
-public interface IAiGenerationService<Req,Resp> 
-: ICrudService<Req, Resp>
+public interface IAiGenerationService<Req,Resp,Entity> : ICrudService<Req, Resp,Entity>
 {
-    
-
 }
