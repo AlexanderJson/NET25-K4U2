@@ -3,45 +3,47 @@ using AiAssistant.ContentApi.Models;
 using ContentApi.Common;
 public class AiGenerationService(AiGenerationRepository repository) 
 : IAiGenerationService<AiGenerationRequest, AiGenerationResponse, AiGeneration>
+
 {
     private readonly AiGenerationRepository _repository = repository;
 
-    public AiGenerationResponse Create(AiGenerationRequest request)
+    public async Task<AiGenerationResponse> Create(AiGenerationRequest request)
     {
         ValidateRequestArgs(request);
-        var AiGen = RequestToEntity(request);
-        var created = _repository.Create(AiGen);
+        var project = RequestToEntity(request);
+        var created = await _repository.CreateAsync(project);
         return EntityToResponse(created);
     }
 
-    public void Delete(Guid id)
+    public async Task Delete(Guid id)
     {
         Guard.Against.NullOrEmptyGuid(id);
-        _repository.Delete(id);
+        await _repository.DeleteAsync(id);
     }
 
-    public List<AiGenerationResponse> GetAll()
+    public async Task<IReadOnlyList<AiGenerationResponse>> GetAll()
     {
-        var response = _repository.GetAll();
-        return EntityToResponseList(response);
+        var projects =  await _repository.GetAllAsync();
+        return EntityToResponseList(projects);
     }
 
-    public AiGenerationResponse GetById(Guid id)
+    public async Task<AiGenerationResponse> GetById(Guid id)
     {
         Guard.Against.NullOrEmptyGuid(id);
-        var response = _repository.GetById(id);
-        return EntityToResponse(response);
+        var response =  await _repository.GetByIdAsync(id);
+        return EntityToResponse(response!);
     }
 
-    public AiGenerationResponse Update(AiGenerationRequest request)
+    public async Task<AiGenerationResponse> Update(Guid id, AiGenerationRequest request)
     {
         ValidateRequestArgs(request);
-        var entity = RequestToEntity(request);
-        var response = _repository.Update(entity);
-        return EntityToResponse(response);
-
+        var project = RequestToEntity(request);
+        var updated = await _repository.UpdateAsync(project);
+        return EntityToResponse(updated);
     }
-  
+
+
+    
     private void ValidateRequestArgs(AiGenerationRequest req)
     {
             Guard.Against.Null(req);
@@ -70,7 +72,7 @@ public class AiGenerationService(AiGenerationRepository repository)
         };
     }
 
-    public List<AiGenerationResponse> EntityToResponseList(List<AiGeneration> e)
+    public IReadOnlyList<AiGenerationResponse> EntityToResponseList(IEnumerable<AiGeneration> e)
     {
         return [.. e.Select(EntityToResponse)];
     }

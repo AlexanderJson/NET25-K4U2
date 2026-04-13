@@ -1,10 +1,8 @@
-public interface ICrudRepository<M>
+public interface ICrudRepository<M> where M : class
 {
-    M Create(M model);
-    M GetById(Guid id);
-    void Delete(Guid id);
-    M Update(M model);
-    List<M> GetAll();
-    
-
+    Task<M> CreateAsync(M model);
+    Task<M?> GetByIdAsync(Guid id);
+    Task DeleteAsync(Guid id);
+    Task<M> UpdateAsync(M model);
+    Task<IReadOnlyList<M>> GetAllAsync();
 }

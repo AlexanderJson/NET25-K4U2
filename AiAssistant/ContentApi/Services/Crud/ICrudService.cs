@@ -1,14 +1,11 @@
-public interface ICrudService<Req,Resp,Entity>
+public interface ICrudService<Req, Resp, Entity> 
+where Req: class
+where Resp: class
+where Entity: class
 {
-    Resp GetById(Guid id);
-    List<Resp> GetAll();
-    Resp Create(Req request);
-    Resp Update(Req request);
-    void Delete(Guid id);
-    Entity RequestToEntity(Req r);
-    Resp EntityToResponse(Entity e);
-
-    List<Resp> EntityToResponseList(List<Entity> e);
-
-
+    Task<Resp> GetById(Guid id);
+    Task<IReadOnlyList<Resp>> GetAll();
+    Task<Resp> Create(Req request);
+    Task<Resp> Update(Guid id, Req request);
+    Task Delete(Guid id);
 }

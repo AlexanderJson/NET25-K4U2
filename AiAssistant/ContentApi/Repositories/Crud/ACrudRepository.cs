@@ -9,38 +9,38 @@ public abstract class ACrudRepository<M>(AppDbContext db) : ICrudRepository<M> w
     protected readonly DbSet<M> _set = db.Set<M>();
 
     
-
-    public virtual M Create(M model)
+    public virtual async Task<M> CreateAsync(M model)
     {
-        _set.Add(model);
-        _db.SaveChanges();
+        await _set.AddAsync(model);
+        await _db.SaveChangesAsync();
         return model;
     }
 
-    public virtual void Delete(Guid id)
+    public virtual async Task DeleteAsync(Guid id)
     {
-        var e = _set.Find(id);
-        if(e!= null)
-        {
-            _set.Remove(e);
-            _db.SaveChanges();
-        }
+        var entity = await _set.FindAsync(id);
+        if (entity is null) return;
+
+        _set.Remove(entity);
+        await _db.SaveChangesAsync();
     }
 
-    public virtual List<M> GetAll()
+    public virtual async Task<IReadOnlyList<M>> GetAllAsync()
     {
-        return [.. _set];
+        return await _set
+            .AsNoTracking()
+            .ToListAsync();
     }
 
-    public virtual M GetById(Guid id)
+    public virtual async Task<M?> GetByIdAsync(Guid id)
     {
-        return _set.Find(id)!;
+        return await _set.FindAsync(id);
     }
 
-    public virtual M Update(M model)
+    public virtual async Task<M> UpdateAsync(M model)
     {
         _set.Update(model);
-        _db.SaveChanges();
+        await _db.SaveChangesAsync();
         return model;
     }
 }

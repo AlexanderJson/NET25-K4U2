@@ -1,62 +1,64 @@
+using System.Runtime.CompilerServices;
 using AiAssistant.ContentApi.Models;
 using ContentApi.Common;
-public class ProjectService(ProjectRepository repository) : IProjectService<ProjectRequest, ProjectResponse,Project>
+public class ProjectService(ProjectRepository repository) 
+: IProjectService<ProjectRequest, ProjectResponse,Project>
 {
     private readonly ProjectRepository _repository = repository;
 
-    public ProjectResponse Create(ProjectRequest request)
+    public async Task<ProjectResponse> Create(ProjectRequest request)
     {
         ValidateRequestArgs(request);
         var project = RequestToEntity(request);
-        var created = _repository.Create(project);
+        var created = await _repository.CreateAsync(project);
         return EntityToResponse(created);
     }
 
-    public void Delete(Guid id)
+    public async Task Delete(Guid id)
     {
         Guard.Against.NullOrEmptyGuid(id);
-        _repository.Delete(id);
+        await _repository.DeleteAsync(id);
     }
 
-    public List<ProjectResponse> GetAll()
+    public async Task<IReadOnlyList<ProjectResponse>> GetAll()
     {
-        var projects =  _repository.GetAll();
+        var projects =  await _repository.GetAllAsync();
         return EntityToResponseList(projects);
 
     }
 
-    public ProjectResponse GetById(Guid id)
+    public async Task<ProjectResponse> GetById(Guid id)
     {
         Guard.Against.NullOrEmptyGuid(id);
-        var response =  _repository.GetById(id);
-        return EntityToResponse(response);
+        var response =  await _repository.GetByIdAsync(id);
+        return EntityToResponse(response!);
     }
 
-    public ProjectResponse Update(ProjectRequest request)
+    public async Task<ProjectResponse> Update(Guid id,ProjectRequest request)
     {
         ValidateRequestArgs(request);
         var project = RequestToEntity(request);
-        var updated = _repository.Update(project);
+        var updated = await _repository.UpdateAsync(project);
         return EntityToResponse(updated);
 
     }
 
 
-    public List<ProjectResponse> EntityToResponseList(List<Project> p)
+    public  IReadOnlyList<ProjectResponse> EntityToResponseList(IEnumerable<Project> p)
     {
         return [.. p.Select(EntityToResponse)];
     }
 
   
 
-    private void ValidateRequestArgs(ProjectRequest req)
+    private  void ValidateRequestArgs(ProjectRequest req)
     {
             Guard.Against.Null(req);
             Guard.Against.NullOrWhiteSpace(req.Title);
             Guard.Against.NullOrWhiteSpace(req.Description);
     }
 
-    public Project RequestToEntity(ProjectRequest r)
+    public  Project RequestToEntity(ProjectRequest r)
     {
         return new Project
             {
@@ -66,7 +68,7 @@ public class ProjectService(ProjectRepository repository) : IProjectService<Proj
             };
     }
 
-    public ProjectResponse EntityToResponse(Project e)
+    public  ProjectResponse EntityToResponse(Project e)
     {
         return new ProjectResponse
         {
@@ -78,4 +80,5 @@ public class ProjectService(ProjectRepository repository) : IProjectService<Proj
         };
     }
 
+  
 }
