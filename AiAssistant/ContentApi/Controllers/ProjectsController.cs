@@ -1,9 +1,12 @@
 
-using AiAssistant.ContentApi.Models;
+using ContentApi.Models;
 using Microsoft.AspNetCore.Mvc;
+using ContentApi.Services;
+namespace ContentApi.Controllers;
 
 [ApiController]
-[Route("api/v0/[controller]")]
+[Route("api/v{version:apiVersion}/[controller]")]
+[ApiVersion("1.0")]
 public class ProjectsController
 (
     IProjectService<ProjectRequest, 
@@ -48,7 +51,7 @@ public class ProjectsController
     {
         var result = await _service.Create(request,ct);
         return CreatedAtAction(
-            nameof(GetById),
+            nameof(_service.GetById),
             new { id = result.Id },
             result
         );

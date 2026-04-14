@@ -1,10 +1,14 @@
 using System.Runtime.CompilerServices;
-using AiAssistant.ContentApi.Models;
 using ContentApi.Common;
+using ContentApi.Models;
+
+namespace ContentApi.Services;
 public class ProjectService(ProjectRepository repository) 
 : IProjectService<ProjectRequest, ProjectResponse,Project>
 {
     private readonly ProjectRepository _repository = repository;
+
+    #region CRUD methods
 
     public async Task<ProjectResponse> Create(ProjectRequest request, CancellationToken ct)
     {
@@ -43,29 +47,23 @@ public class ProjectService(ProjectRepository repository)
 
     }
 
+    #endregion
+
+    #region Mapping methods
 
     public  IReadOnlyList<ProjectResponse> EntityToResponseList(IEnumerable<Project> p)
     {
         return [.. p.Select(EntityToResponse)];
     }
 
-  
-
-    private  void ValidateRequestArgs(ProjectRequest req)
-    {
-            Guard.Against.Null(req);
-            Guard.Against.NullOrWhiteSpace(req.Title);
-            Guard.Against.NullOrWhiteSpace(req.Description);
-    }
-
     public  Project RequestToEntity(ProjectRequest r)
     {
         return new Project
-            {
-                Title = r.Title, 
-                Description = r.Description, 
-                Deadline = r.Deadline
-            };
+        {
+            Title = r.Title, 
+            Description = r.Description, 
+            Deadline = r.Deadline
+        };
     }
 
     public  ProjectResponse EntityToResponse(Project e)
@@ -79,6 +77,16 @@ public class ProjectService(ProjectRepository repository)
             CreatedAt = e.CreatedAt
         };
     }
+    #endregion
 
-  
+    #region Validation helpers
+    private  void ValidateRequestArgs(ProjectRequest req)
+    {
+        Guard.Against.Null(req);
+        Guard.Against.NullOrWhiteSpace(req.Title);
+        Guard.Against.NullOrWhiteSpace(req.Description);
+    }
+
+    #endregion
+    
 }

@@ -1,5 +1,6 @@
 using AiAssistant.ContentApi.Data;
-using AiAssistant.ContentApi.Models;
-
+using ContentApi.Models;
 public class ProjectRepository(AppDbContext db) : ACrudRepository<Project>(db)
-{}
+{
+    
+}

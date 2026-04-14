@@ -1,4 +1,4 @@
-namespace AiAssistant.ContentApi.Models;
+namespace ContentApi.Models;
 
 public class AiGeneration
 {

@@ -1,3 +1,5 @@
+namespace ContentApi.Services;
+
 public interface IAiGenerationService<Req,Resp,Entity> : ICrudService<Req, Resp,Entity>
 where Req: class
 where Resp: class

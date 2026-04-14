@@ -1,11 +1,15 @@
 using AiAssistant.ContentApi.DTO;
-using AiAssistant.ContentApi.Models;
 using ContentApi.Common;
+using ContentApi.Models;
+namespace ContentApi.Services;
+
 public class AiGenerationService(AiGenerationRepository repository) 
 : IAiGenerationService<AiGenerationRequest, AiGenerationResponse, AiGeneration>
 
 {
     private readonly AiGenerationRepository _repository = repository;
+
+    #region CRUD methods
 
     public async Task<AiGenerationResponse> Create(AiGenerationRequest request, CancellationToken ct)
     {
@@ -42,15 +46,9 @@ public class AiGenerationService(AiGenerationRepository repository)
         return EntityToResponse(updated);
     }
 
-
+    #endregion
+    #region Mapping methods
     
-    private void ValidateRequestArgs(AiGenerationRequest req)
-    {
-            Guard.Against.Null(req);
-            Guard.Against.NullOrWhiteSpace(req.Prompt);
-            Guard.Against.NullOrEmptyGuid(req.ProjectId);
-    }
-
     public AiGeneration RequestToEntity(AiGenerationRequest r)
     {
         return new AiGeneration
@@ -76,4 +74,15 @@ public class AiGenerationService(AiGenerationRepository repository)
     {
         return [.. e.Select(EntityToResponse)];
     }
+    #endregion
+    #region Validation Methods
+
+    private void ValidateRequestArgs(AiGenerationRequest req)
+    {
+        Guard.Against.Null(req);
+        Guard.Against.NullOrWhiteSpace(req.Prompt);
+        Guard.Against.NullOrEmptyGuid(req.ProjectId);
+    }
+
+    #endregion
 }
