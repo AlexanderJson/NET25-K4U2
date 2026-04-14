@@ -1,3 +1,5 @@
+using ContentApi.Models;
+
 public class ProjectRequest
 {
 
@@ -6,6 +8,5 @@ public class ProjectRequest
     public string? Description {get; set;}
 
     public DateTime Deadline {get; set;}
-
 
 }

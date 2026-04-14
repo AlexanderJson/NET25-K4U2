@@ -5,9 +5,14 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Scalar.AspNetCore;
 using ContentApi.Services;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using System.Linq.Expressions;
 
 
 var builder = WebApplication.CreateBuilder(args);
+
+Expression<Func<User, object>> selector =
+    u => new { u.Username, u.CreatedAt };
 
 // Controllers
 builder.Services.AddControllers();
