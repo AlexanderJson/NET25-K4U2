@@ -43,4 +43,5 @@ public abstract class ACrudRepository<M>(AppDbContext db) : ICrudRepository<M> w
         await _db.SaveChangesAsync(ct);
         return model;
     }
+    
 }

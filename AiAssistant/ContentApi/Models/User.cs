@@ -1,3 +1,5 @@
+namespace ContentApi.Models;
+
 public class User
 {
     public Guid Id { get; set; }
@@ -6,7 +8,7 @@ public class User
 
     public required string HashedPassword { get; set; }
 
-    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
-
     public List<Notebook> Notebooks { get; set; } = new();
+
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 }

@@ -1,3 +1,4 @@
+namespace ContentApi.Models;
 
 public class Note
 {
@@ -12,4 +13,5 @@ public class Note
 
     public DateTime LastUpdated { get; set; } = DateTime.UtcNow;
 
+    public byte[] RowVersion { get; set; } = default!;
 }

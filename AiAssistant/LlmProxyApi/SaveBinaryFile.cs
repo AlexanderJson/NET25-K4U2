@@ -1,6 +1,6 @@
 // To run this code you need to install the following dependencies:
 // dotnet add package Google.GenAI
-
+/*
 using System;
 using System.IO;
 using System.Threading.Tasks;
@@ -33,5 +33,5 @@ public class
         };
     }
 }
-
+*/
 

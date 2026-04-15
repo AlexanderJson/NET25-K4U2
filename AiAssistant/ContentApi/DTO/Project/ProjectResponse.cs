@@ -1,5 +1,5 @@
 using AiAssistant.ContentApi.DTO;
-using AiAssistant.ContentApi.Models;
+using ContentApi.Models;
 
 public class ProjectResponse
 {

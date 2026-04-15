@@ -7,6 +7,7 @@ using Scalar.AspNetCore;
 using ContentApi.Services;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using System.Linq.Expressions;
+using AiAssistant.ContentApi.Models;
 
 
 var builder = WebApplication.CreateBuilder(args);

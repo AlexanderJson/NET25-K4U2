@@ -1,0 +1,9 @@
+C:\Users\alexa\Desktop\skola\K4U2\NET25-K4U2\AiAssistant\LlmProxyApi\obj\Debug\net10.0\LlmProxyApi.csproj.AssemblyReference.cache
+C:\Users\alexa\Desktop\skola\K4U2\NET25-K4U2\AiAssistant\LlmProxyApi\obj\Debug\net10.0\rpswa.dswa.cache.json
+C:\Users\alexa\Desktop\skola\K4U2\NET25-K4U2\AiAssistant\LlmProxyApi\obj\Debug\net10.0\LlmProxyApi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\alexa\Desktop\skola\K4U2\NET25-K4U2\AiAssistant\LlmProxyApi\obj\Debug\net10.0\LlmProxyApi.AssemblyInfoInputs.cache
+C:\Users\alexa\Desktop\skola\K4U2\NET25-K4U2\AiAssistant\LlmProxyApi\obj\Debug\net10.0\LlmProxyApi.AssemblyInfo.cs
+C:\Users\alexa\Desktop\skola\K4U2\NET25-K4U2\AiAssistant\LlmProxyApi\obj\Debug\net10.0\LlmProxyApi.csproj.CoreCompileInputs.cache
+C:\Users\alexa\Desktop\skola\K4U2\NET25-K4U2\AiAssistant\LlmProxyApi\obj\Debug\net10.0\LlmProxyApi.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\alexa\Desktop\skola\K4U2\NET25-K4U2\AiAssistant\LlmProxyApi\obj\Debug\net10.0\LlmProxyApi.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\alexa\Desktop\skola\K4U2\NET25-K4U2\AiAssistant\LlmProxyApi\obj\Debug\net10.0\LlmProxyApi.sourcelink.json

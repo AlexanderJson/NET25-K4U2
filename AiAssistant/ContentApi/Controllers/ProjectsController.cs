@@ -78,15 +78,7 @@ public class ProjectsController
     }
 
 
-    [HttpGet("{id:guid}")]
-    [ProducesResponseType(typeof(ProjectResponse), StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<ActionResult<ProjectResponse>>GetById(Guid id, CancellationToken ct)
-    {
-        _logger.LogInformation("Fetching project {ProjectId}", id);
-        var result = await _service.Get(User.Username, User.CreationDate, User.Email);
-        return Ok(result);
-    }
+
 
 }
 
