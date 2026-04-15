@@ -2,7 +2,7 @@ namespace ContentApi.Projection;
 
 public static class QueryExtensions
 {
-    public static IQueryable<Dto> ProjectThis<Entity, Dto>
+    public static IQueryable<Dto> ProjectTo<Entity, Dto>
     (this IQueryable<Entity> query)
     where Entity: class
     where Dto: class, IProjection<Entity,Dto>
