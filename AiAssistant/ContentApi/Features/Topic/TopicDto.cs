@@ -14,7 +14,6 @@ public sealed record NotebookTopicsSummary(string Title, int Order, bool IsCompl
             );
     }
 
-
 public record TopicResponse(string Title, int Order, bool IsCompleted, List<NoteResponse> Notes)
 : IProjection<Topic, TopicResponse>
 {
@@ -27,3 +26,5 @@ public record TopicResponse(string Title, int Order, bool IsCompleted, List<Note
         t.Notes.AsQueryable().Select(NoteResponse.Selector).ToList()
     );
 }
+
+public sealed record GenerateTopicsResponse(IReadOnlyList<string> Topics);
