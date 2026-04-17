@@ -10,7 +10,7 @@ public record NotebookResponse
 (
     string Category,
     string Title,
-    List<TopicResponse>? Topics
+    List<TopicSummary>? Topics
 ) : IProjection<Notebook, NotebookResponse>
 {
     public static Expression<Func<Notebook, NotebookResponse>> Selector => 
@@ -20,7 +20,7 @@ public record NotebookResponse
         n.Topics
         .AsQueryable()
         .OrderBy(o => o.Order)
-        .Select(TopicResponse.Selector)
+        .Select(TopicSummary.Selector)
         .ToList()
     );
 }

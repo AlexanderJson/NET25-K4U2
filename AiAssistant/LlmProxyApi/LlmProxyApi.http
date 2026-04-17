@@ -1,4 +1,4 @@
-@LlmProxyApi_HostAddress = http://localhost:5158
+@LlmProxyApi_HostAddress = http://localhost:5002
 
 GET {{LlmProxyApi_HostAddress}}/weatherforecast/
 Accept: application/json
