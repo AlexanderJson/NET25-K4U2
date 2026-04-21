@@ -3,8 +3,7 @@ using ContentApi.DTO;
 using ContentApi.Models;
 using ContentApi.Services;
 
-public class NotebookService(INotebookRepository r) 
-: INotebookService<CreateNotebookRequest, UpdateNotebookRequest>
+public class NotebookService(INotebookRepository r) : INotebookService
 {
     private readonly INotebookRepository _r = r;
 
@@ -23,11 +22,11 @@ public class NotebookService(INotebookRepository r)
     }
  
 
-    public async Task Update(UpdateNotebookRequest request, CancellationToken ct)
+    public async Task Update(Guid id, UpdateNotebookRequest request, CancellationToken ct)
     {
-        Guard.Against.NullOrEmptyGuid(request.Id);
+        Guard.Against.NullOrEmptyGuid(id);
         Guard.Against.NullOrWhiteSpace(request.Title);
-        var notebook = await _r.GetByIdAsync(request.Id, ct);
+        var notebook = await _r.GetByIdAsync(id, ct);
         Guard.Against.Null(notebook);
         notebook!.UpdateTitle(request.Title!);
         await _r.UpdateAsync(notebook, ct);

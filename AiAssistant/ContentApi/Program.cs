@@ -1,21 +1,12 @@
 using AiAssistant.ContentApi.Data;
-using AiAssistant.ContentApi.DTO;
-using ContentApi.Models;
+using ContentApi.DTO;
+using ContentApi.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Scalar.AspNetCore;
-using ContentApi.Services;
-using Microsoft.EntityFrameworkCore.Infrastructure;
-using System.Linq.Expressions;
-using AiAssistant.ContentApi.Models;
-
 
 var builder = WebApplication.CreateBuilder(args);
 
-Expression<Func<User, object>> selector =
-    u => new { u.Username, u.CreatedAt };
-
-// Controllers
 builder.Services.AddControllers();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
@@ -23,18 +14,20 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 builder.Services.AddOpenApi();
 
-builder.Services.AddScoped<ProjectRepository>();
-builder.Services.AddScoped<AiGenerationRepository>();
-
-builder.Services.AddScoped<IProjectService<ProjectRequest, ProjectResponse, Project>, ProjectService>();
-builder.Services.AddScoped<IAiGenerationService<AiGenerationRequest, AiGenerationResponse, AiGeneration>, AiGenerationService>();
-
 builder.Services.AddApiVersioning(options =>
 {
     options.DefaultApiVersion = new ApiVersion(1, 0);
     options.AssumeDefaultVersionWhenUnspecified = true;
     options.ReportApiVersions = true;
 });
+
+builder.Services.AddScoped<INotebookRepository, NotebookRepository>();
+builder.Services.AddScoped<INotebookQueries, NotebookQueries>();
+builder.Services.AddScoped<INotebookService, NotebookService>();
+
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserQueries, UserQueries>();
+builder.Services.AddScoped<IUserService,UserService>();
 
 var app = builder.Build();
 

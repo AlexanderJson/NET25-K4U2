@@ -9,7 +9,7 @@ public class TopicRepository(AppDbContext db) : ACrudRepository<Topic>(db), ITop
 {
     public async Task<TopicSummary?> GetTopicSummaryById(Guid id, CancellationToken ct)
     {
-        return await _db.Topics
+        return await _set
             .AsNoTracking()
             .AsSplitQuery()
             .Where(n => n.Id == id)
@@ -19,7 +19,7 @@ public class TopicRepository(AppDbContext db) : ACrudRepository<Topic>(db), ITop
 
     public async Task<IReadOnlyList<TopicSummary?>> GetTopicSummariesByTitle(string title, CancellationToken ct)
     {
-        return await _db.Topics
+        return await _set
             .AsNoTracking()
             .AsSplitQuery()
             .Where(n => n.Title.Contains(title))
@@ -29,7 +29,7 @@ public class TopicRepository(AppDbContext db) : ACrudRepository<Topic>(db), ITop
 
     public async Task<IReadOnlyList<TopicSummary?>> GetTopicSummariesByCompleted(bool completed, CancellationToken ct)
     {
-        return await _db.Topics
+        return await _set
             .AsNoTracking()
             .AsSplitQuery()
             .Where(n => n.IsCompleted == completed)

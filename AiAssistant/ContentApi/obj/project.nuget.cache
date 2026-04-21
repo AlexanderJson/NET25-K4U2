@@ -1,16 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "dUCsb4fFPcw=",
-  "success": false,
-  "projectFilePath": "C:\\Users\\alexa\\Desktop\\skola\\repovs\\NET25-K4u2\\AiAssistant\\ContentApi\\ContentApi.csproj",
+  "dgSpecHash": "2pmISMetlQQ=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\alexa\\Desktop\\skola\\repovs\\NET25-K4u2\\aiassistant\\contentapi\\ContentApi.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\alexa\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\10.0.5\\microsoft.aspnetcore.authentication.jwtbearer.10.0.5.nupkg.sha512",
+    "C:\\Users\\alexa\\.nuget\\packages\\bcrypt.net-next\\4.1.0\\bcrypt.net-next.4.1.0.nupkg.sha512",
+    "C:\\Users\\alexa\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\10.0.6\\microsoft.aspnetcore.authentication.jwtbearer.10.0.6.nupkg.sha512",
     "C:\\Users\\alexa\\.nuget\\packages\\microsoft.aspnetcore.mvc.versioning\\5.1.0\\microsoft.aspnetcore.mvc.versioning.5.1.0.nupkg.sha512",
-    "C:\\Users\\alexa\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.3\\microsoft.aspnetcore.openapi.10.0.3.nupkg.sha512",
-    "C:\\Users\\alexa\\.nuget\\packages\\microsoft.entityframeworkcore\\10.0.5\\microsoft.entityframeworkcore.10.0.5.nupkg.sha512",
-    "C:\\Users\\alexa\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\10.0.5\\microsoft.entityframeworkcore.abstractions.10.0.5.nupkg.sha512",
-    "C:\\Users\\alexa\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\10.0.5\\microsoft.entityframeworkcore.analyzers.10.0.5.nupkg.sha512",
-    "C:\\Users\\alexa\\.nuget\\packages\\microsoft.entityframeworkcore.inmemory\\10.0.5\\microsoft.entityframeworkcore.inmemory.10.0.5.nupkg.sha512",
+    "C:\\Users\\alexa\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.6\\microsoft.aspnetcore.openapi.10.0.6.nupkg.sha512",
+    "C:\\Users\\alexa\\.nuget\\packages\\microsoft.entityframeworkcore\\10.0.6\\microsoft.entityframeworkcore.10.0.6.nupkg.sha512",
+    "C:\\Users\\alexa\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\10.0.6\\microsoft.entityframeworkcore.abstractions.10.0.6.nupkg.sha512",
+    "C:\\Users\\alexa\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\10.0.6\\microsoft.entityframeworkcore.analyzers.10.0.6.nupkg.sha512",
+    "C:\\Users\\alexa\\.nuget\\packages\\microsoft.entityframeworkcore.inmemory\\10.0.6\\microsoft.entityframeworkcore.inmemory.10.0.6.nupkg.sha512",
     "C:\\Users\\alexa\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\10.0.6\\microsoft.entityframeworkcore.relational.10.0.6.nupkg.sha512",
     "C:\\Users\\alexa\\.nuget\\packages\\microsoft.identitymodel.abstractions\\8.0.1\\microsoft.identitymodel.abstractions.8.0.1.nupkg.sha512",
     "C:\\Users\\alexa\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\8.0.1\\microsoft.identitymodel.jsonwebtokens.8.0.1.nupkg.sha512",
@@ -22,17 +23,5 @@
     "C:\\Users\\alexa\\.nuget\\packages\\scalar.aspnetcore\\2.13.22\\scalar.aspnetcore.2.13.22.nupkg.sha512",
     "C:\\Users\\alexa\\.nuget\\packages\\system.identitymodel.tokens.jwt\\8.0.1\\system.identitymodel.tokens.jwt.8.0.1.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1605",
-      "level": "Error",
-      "message": "Warning As Error: Detected package downgrade: Microsoft.EntityFrameworkCore from 10.0.6 to 10.0.5. Reference the package directly from the project to select a different version. \r\n ContentApi -> Microsoft.EntityFrameworkCore.Relational 10.0.6 -> Microsoft.EntityFrameworkCore (>= 10.0.6) \r\n ContentApi -> Microsoft.EntityFrameworkCore (>= 10.0.5)",
-      "projectPath": "C:\\Users\\alexa\\Desktop\\skola\\repovs\\NET25-K4u2\\AiAssistant\\ContentApi\\ContentApi.csproj",
-      "filePath": "C:\\Users\\alexa\\Desktop\\skola\\repovs\\NET25-K4u2\\AiAssistant\\ContentApi\\ContentApi.csproj",
-      "libraryId": "Microsoft.EntityFrameworkCore",
-      "targetGraphs": [
-        "net10.0"
-      ]
-    }
-  ]
+  "logs": []
 }

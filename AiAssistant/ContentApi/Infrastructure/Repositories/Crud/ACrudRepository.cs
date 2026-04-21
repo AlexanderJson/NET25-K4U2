@@ -24,23 +24,17 @@ public abstract class ACrudRepository<M>(AppDbContext db) : ICrudRepository<M> w
         await _db.SaveChangesAsync(ct);
     }
 
-    public virtual async Task<IReadOnlyList<M>> GetAllAsync(CancellationToken ct)
-    {
-        return await _set
-            .AsNoTracking()
-            .ToListAsync(ct);
-    }
+
 
     public virtual async Task<M?> GetByIdAsync(Guid id, CancellationToken ct)
     {
         return await _set.FindAsync([id], ct);
     }
 
-    public virtual async Task<M> UpdateAsync(M model, CancellationToken ct)
+    public virtual async Task UpdateAsync(M model, CancellationToken ct)
     {
         _set.Update(model);
         await _db.SaveChangesAsync(ct);
-        return model;
     }
     
 }

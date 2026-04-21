@@ -3,7 +3,7 @@ using  ContentApi.Models;
 using ContentApi.Projection;
 namespace ContentApi.DTO;
 
-//TODO - ta ut logik här!!!!
+//TODO - ta ut logik här?
 public sealed record NotebookResponse
 (
     string Category,

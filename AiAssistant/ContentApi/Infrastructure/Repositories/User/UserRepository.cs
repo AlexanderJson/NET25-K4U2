@@ -6,21 +6,10 @@ using Microsoft.EntityFrameworkCore;
 
 public class UserRepository(AppDbContext db) : ACrudRepository<User>(db), IUserRepository
 {
-    public async Task<UserSummary?> GetUserByIdAsync(Guid id, CancellationToken ct = default)
+    public async Task<bool> UsernameExistsAsync(string username, CancellationToken ct)
     {
-        return await db.Users
+        return await _db.Users
             .AsNoTracking()
-            .Where(u => u.Id == id)
-            .ProjectTo<User, UserSummary>()
-            .FirstOrDefaultAsync(ct);
-    }
-
-    public async Task<IReadOnlyList<UserSummary>> SearchUsersAsync(string searchTerm, CancellationToken ct = default)
-    {
-            return await db.Users
-                        .AsNoTracking()
-                        .Where(u => u.Username.Contains(searchTerm))
-                        .ProjectTo<User, UserSummary>()
-                        .ToListAsync(ct);
+            .AnyAsync(u => u.Username == username, ct);
     }
 }

@@ -12,6 +12,8 @@ public class Notebook
 
     public Guid UserId { get; private set; }
 
+    public User? User {get; private set;}
+
     // This is my mutable list (still private)
     private readonly List<Topic> _topics = new();
     // and this is the immutable version derived from the mutable
@@ -22,8 +24,7 @@ public class Notebook
 
     public DateTime LastUpdated { get; private set; }  
 
-    public byte[] RowVersion { get; private set; } = default!;
-
+    public byte[] RowVersion { get; private set; } = new byte[8];
     protected Notebook(){}
     public Notebook(string category, string title, Guid userId)
     {
