@@ -1,7 +1,8 @@
 namespace ContentApi.Services;
 
-public interface INotebookService<Req,Resp,Entity> : ICrudService<Req, Resp,Entity>
-where Req: class
-where Resp: class
-where Entity: class
-{}
+public interface INotebookService<TCreate, TUpdate> : ICrudService<TCreate, TUpdate>
+where TCreate: class
+where TUpdate: class
+{
+    
+}

@@ -9,11 +9,10 @@ public abstract class ACrudRepository<M>(AppDbContext db) : ICrudRepository<M> w
     protected readonly DbSet<M> _set = db.Set<M>(); // this one is for all operations on the table (M)
 
     
-    public virtual async Task<M> CreateAsync(M model, CancellationToken ct)
+    public virtual async Task CreateAsync(M model, CancellationToken ct)
     {
         await _set.AddAsync(model, ct);
         await _db.SaveChangesAsync(ct);
-        return model;
     }
 
     public virtual async Task DeleteAsync(Guid id, CancellationToken ct)

@@ -8,7 +8,7 @@ public sealed record NotebookResponse
 (
     string Category,
     string Title,
-    List<TopicResponse>? Topics
+    IReadOnlyCollection<TopicResponse>? Topics
 ) : IProjection<Notebook, NotebookResponse>
 {
     public static Expression<Func<Notebook, NotebookResponse>> Selector => 

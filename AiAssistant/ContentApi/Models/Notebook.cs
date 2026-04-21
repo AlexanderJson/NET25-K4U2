@@ -1,23 +1,56 @@
+using ContentApi.Common;
+
 namespace ContentApi.Models;
 
 public class Notebook
 {
-    public Guid Id { get; set; }
+    public Guid Id { get; private set; }
 
-    public required string Category { get; set; }
+    public  string Category { get; private set; }
 
-    public required string Title { get; set; }
+    public  string Title { get; private set; }
 
-    public Guid UserId { get; set; }
-    public User User { get; set; } = null!;
+    public Guid UserId { get; private set; }
 
-    public string? HashedPassword { get; set; }
+    // This is my mutable list (still private)
+    private readonly List<Topic> _topics = new();
+    // and this is the immutable version derived from the mutable
+    public IReadOnlyCollection<Topic> Topics => _topics;
 
-    public List<Topic> Topics { get; set; } = new();
+    // these three are handled by db triggers  
+    public DateTime CreatedAt { get; private set; } 
 
-    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+    public DateTime LastUpdated { get; private set; }  
 
-    public DateTime LastUpdated { get; set; } = DateTime.UtcNow;
+    public byte[] RowVersion { get; private set; } = default!;
 
-    public byte[] RowVersion { get; set; } = default!;
+    protected Notebook(){}
+    public Notebook(string category, string title, Guid userId)
+    {
+       Guard.Against.NullOrWhiteSpace(title);
+       Guard.Against.NullOrWhiteSpace(category);
+       Guard.Against.NullOrEmptyGuid(userId);
+
+        Id = Guid.NewGuid();
+        Category = category.Trim();
+        Title = title.Trim();
+        UserId = userId;
+    }
+
+    public void UpdateTitle(string title)
+    {
+        Guard.Against.NullOrWhiteSpace(title);
+        Title = title.Trim();
+    }
+
+
+    public void AddTopic(Topic topic)
+    {
+        Guard.Against.Null(topic);
+        //var normInput = topic.Title.Trim().ToUpperInvariant();
+        //if(_topics.Any(t => t.Title.Trim().Equals(normInput, StringComparison.OrdinalIgnoreCase))) throw new InvalidOperationException("This topic already exists!");
+        _topics.Add(topic);
+    }
+
+
 }

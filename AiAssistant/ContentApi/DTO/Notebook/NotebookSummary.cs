@@ -1,0 +1,1 @@
+public sealed record NotebookSummary(string Title, string Category);
