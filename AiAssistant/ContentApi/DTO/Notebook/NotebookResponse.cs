@@ -1,15 +1,10 @@
 using System.Linq.Expressions;
-using System.Xml;
-using AiAssistant.ContentApi.Data;
 using  ContentApi.Models;
 using ContentApi.Projection;
-using Microsoft.EntityFrameworkCore;
 namespace ContentApi.DTO;
 
-public record NotebookRequest(string Category, string Title, Guid UserId);
-
-
-public record NotebookResponse
+//TODO - ta ut logik här!!!!
+public sealed record NotebookResponse
 (
     string Category,
     string Title,

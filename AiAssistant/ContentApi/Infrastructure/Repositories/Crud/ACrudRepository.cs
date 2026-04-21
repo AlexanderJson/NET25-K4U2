@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 public abstract class ACrudRepository<M>(AppDbContext db) : ICrudRepository<M> where M : class
 {
 
-    // Protected ensures  classes extending this base can still use it
-    protected readonly AppDbContext _db = db;
-    protected readonly DbSet<M> _set = db.Set<M>();
+    // Protected ensures  classes extending this base can use the context created
+    protected readonly AppDbContext _db = db; // Full context for certain operations (like if we need several tables or perform DB-wide commands like Savechanges etc )
+    protected readonly DbSet<M> _set = db.Set<M>(); // this one is for all operations on the table (M)
 
     
     public virtual async Task<M> CreateAsync(M model, CancellationToken ct)
