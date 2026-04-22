@@ -1,1 +1,1 @@
-public sealed record CreateTopicRequest(string Title, int Order);
+public sealed record CreateTopicRequest(Guid notebookId, string Title, int Order);

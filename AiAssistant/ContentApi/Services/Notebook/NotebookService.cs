@@ -3,9 +3,14 @@ using ContentApi.DTO;
 using ContentApi.Models;
 using ContentApi.Services;
 
-public class NotebookService(INotebookRepository r) : INotebookService
+public partial class NotebookService(INotebookRepository r,ITopicRepository tp, ITopicService ts) : INotebookService
 {
     private readonly INotebookRepository _r = r;
+    private readonly ITopicService _ts = ts;
+    
+    private readonly ITopicRepository _topicRepo = tp;
+
+
 
     public async Task<Guid> Create(CreateNotebookRequest request, CancellationToken ct)
     {
@@ -30,6 +35,29 @@ public class NotebookService(INotebookRepository r) : INotebookService
         Guard.Against.Null(notebook);
         notebook!.UpdateTitle(request.Title!);
         await _r.UpdateAsync(notebook, ct);
+    }
+    public async Task AttachTopicsToBook(
+        Guid notebookId,
+        AttachTopicRequest request,
+        CancellationToken ct)
+    {
+        Guard.Against.NullOrEmptyGuid(notebookId);
+        Guard.Against.Null(request);
+        Guard.Against.Null(request.TopicIds);
+
+        var notebook = await _r.GetByIdAsync(notebookId, ct);
+        Guard.Against.Null(notebook);
+
+        var topicIds = request.TopicIds.Distinct().ToList();
+
+        var topics = await _topicRepo.GetByIdsAsync(topicIds, ct);
+
+        foreach (var topic in topics)
+        {
+            notebook!.AddTopic(topic);
+        }
+
+        await _r.UpdateAsync(notebook!, ct);
     }
 
     private void ValidateInput(CreateNotebookRequest req)

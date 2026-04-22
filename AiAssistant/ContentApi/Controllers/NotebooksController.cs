@@ -94,4 +94,14 @@ public class NotebooksController
         return NoContent();
     }
 
+    [HttpPost("{id:guid}/topics")]
+    public async Task<IActionResult> AttachTopics(
+        Guid id,
+        [FromBody] AttachTopicRequest request,
+        CancellationToken ct)
+    {
+        await _service.AttachTopicsToBook(id, request, ct);
+        return NoContent();
+    }
+
 }

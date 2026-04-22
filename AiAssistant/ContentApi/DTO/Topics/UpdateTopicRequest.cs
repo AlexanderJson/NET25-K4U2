@@ -1,1 +1,1 @@
-public sealed record UpdateTopicRequest(string Title, int Order);
+public sealed record UpdateTopicRequest(string Title);

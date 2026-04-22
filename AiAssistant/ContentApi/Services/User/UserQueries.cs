@@ -19,7 +19,7 @@ public class UserQueries(AppDbContext context) : IUserQueries
     {
         return await context.Users
             .AsNoTracking()
-            .Where(u => u.Username.Contains(searchTerm))
+            .Where(u => u.Username.ToLower().Contains(searchTerm.ToLower()))
             .ProjectTo<User, UserSummary>()
             .ToListAsync(ct);
     }
