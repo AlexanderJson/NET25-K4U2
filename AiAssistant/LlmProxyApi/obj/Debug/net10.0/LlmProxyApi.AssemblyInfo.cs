@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LlmProxyApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+af6bb2bae33a60c619dc3cb32f80b8d8c6a84ee7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+65a55c37b99bf626c5a4b7b3e8326b30a3ccc74c")]
 [assembly: System.Reflection.AssemblyProductAttribute("LlmProxyApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LlmProxyApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
