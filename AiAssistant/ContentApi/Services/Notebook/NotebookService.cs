@@ -3,7 +3,7 @@ using ContentApi.DTO;
 using ContentApi.Models;
 using ContentApi.Services;
 
-public partial class NotebookService(INotebookRepository r,ITopicRepository tp, ITopicService ts) : INotebookService
+public  class NotebookService(INotebookRepository r,ITopicRepository tp, ITopicService ts) : INotebookService
 {
     private readonly INotebookRepository _r = r;
     private readonly ITopicService _ts = ts;
@@ -60,6 +60,7 @@ public partial class NotebookService(INotebookRepository r,ITopicRepository tp, 
         await _r.UpdateAsync(notebook!, ct);
     }
 
+    
     private void ValidateInput(CreateNotebookRequest req)
     {
         Guard.Against.NullOrWhiteSpace(req.Category);

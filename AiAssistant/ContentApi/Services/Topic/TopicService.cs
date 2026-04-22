@@ -5,6 +5,8 @@ using ContentApi.Services;
 public class TopicService(ITopicRepository r) : ICrudService<CreateTopicRequest, UpdateTopicRequest>, ITopicService
 {
     private readonly ITopicRepository _r = r;
+
+
     public async Task<Guid> Create(CreateTopicRequest request, CancellationToken ct)
     {
         ValidateInput(request);
@@ -35,6 +37,10 @@ public class TopicService(ITopicRepository r) : ICrudService<CreateTopicRequest,
         topic!.Complete();
         await _r.UpdateAsync(topic, ct);
     }
+
+
+ 
+
     private void ValidateInput(CreateTopicRequest req)
     {
         Guard.Against.NullOrWhiteSpace(req.Title);
