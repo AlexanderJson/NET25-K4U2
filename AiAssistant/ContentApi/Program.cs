@@ -1,14 +1,19 @@
 using AiAssistant.ContentApi.Data;
+using ContentApi.Api.Middleware;
 using ContentApi.DTO;
 using ContentApi.Projection;
 using ContentApi.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
+
+builder.Services.AddProblemDetails();
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseInMemoryDatabase("AiContentDb"));
@@ -18,9 +23,22 @@ builder.Services.Configure<LlmPromptOptions>(
 
 builder.Services.AddScoped<ITopicPromptBuilder, TopicPromptBuilder>();
 
-builder.Services.AddHttpClient<ILlmClient, LlmClient>(client =>
+builder.Services.AddOptions<LlmProxyOptions>()
+    .Bind(builder.Configuration.GetSection(LlmProxyOptions.SectionName))
+    .Validate(options => !string.IsNullOrWhiteSpace(options.BaseUrl),
+        "LlmProxy BaseUrl is required.")
+    .Validate(options => options.TimeoutSeconds > 0,
+        "LlmProxy TimeoutSeconds must be greater than 0.")
+    .ValidateOnStart();
+
+builder.Services.AddHttpClient<ILlmClient, LlmClient>((serviceProvider, client) =>
 {
-    client.BaseAddress = new Uri("http://localhost:5002/");
+    var options = serviceProvider
+        .GetRequiredService<IOptions<LlmProxyOptions>>()
+        .Value;
+
+    client.BaseAddress = new Uri(options.BaseUrl);
+    client.Timeout = TimeSpan.FromSeconds(options.TimeoutSeconds);
 });
 
 builder.Services.AddOpenApi();
@@ -49,6 +67,8 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<NotebookWorkflowService>();
 
 var app = builder.Build();
+
+app.UseExceptionHandler();
 
 if (app.Environment.IsDevelopment())
 {

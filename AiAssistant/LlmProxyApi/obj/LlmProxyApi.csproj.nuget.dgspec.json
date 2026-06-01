@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\alexa\\Desktop\\Ny mapp (3)\\NET25-K4U2\\AiAssistant\\LlmProxyApi\\LlmProxyApi.csproj": {}
+    "C:\\Users\\alexa\\Desktop\\Ny mapp (3)\\NET25-K4U2\\AiAssistant\\llmproxyapi\\LlmProxyApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\alexa\\Desktop\\Ny mapp (3)\\NET25-K4U2\\AiAssistant\\LlmProxyApi\\LlmProxyApi.csproj": {
+    "C:\\Users\\alexa\\Desktop\\Ny mapp (3)\\NET25-K4U2\\AiAssistant\\llmproxyapi\\LlmProxyApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\alexa\\Desktop\\Ny mapp (3)\\NET25-K4U2\\AiAssistant\\LlmProxyApi\\LlmProxyApi.csproj",
+        "projectUniqueName": "C:\\Users\\alexa\\Desktop\\Ny mapp (3)\\NET25-K4U2\\AiAssistant\\llmproxyapi\\LlmProxyApi.csproj",
         "projectName": "LlmProxyApi",
-        "projectPath": "C:\\Users\\alexa\\Desktop\\Ny mapp (3)\\NET25-K4U2\\AiAssistant\\LlmProxyApi\\LlmProxyApi.csproj",
+        "projectPath": "C:\\Users\\alexa\\Desktop\\Ny mapp (3)\\NET25-K4U2\\AiAssistant\\llmproxyapi\\LlmProxyApi.csproj",
         "packagesPath": "C:\\Users\\alexa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\alexa\\Desktop\\Ny mapp (3)\\NET25-K4U2\\AiAssistant\\LlmProxyApi\\obj\\",
+        "outputPath": "C:\\Users\\alexa\\Desktop\\Ny mapp (3)\\NET25-K4U2\\AiAssistant\\llmproxyapi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

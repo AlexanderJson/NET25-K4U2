@@ -51,3 +51,47 @@ C:\Users\alexa\Desktop\skola\repovs\NET25-K4u2\aiassistant\llmproxyapi\obj\Debug
 C:\Users\alexa\Desktop\skola\repovs\NET25-K4u2\aiassistant\llmproxyapi\obj\Debug\net10.0\LlmProxyApi.pdb
 C:\Users\alexa\Desktop\skola\repovs\NET25-K4u2\aiassistant\llmproxyapi\obj\Debug\net10.0\LlmProxyApi.genruntimeconfig.cache
 C:\Users\alexa\Desktop\skola\repovs\NET25-K4u2\aiassistant\llmproxyapi\obj\Debug\net10.0\ref\LlmProxyApi.dll
+C:\Users\alexa\Desktop\Ny mapp (3)\NET25-K4U2\AiAssistant\llmproxyapi\bin\Debug\net10.0\appsettings.Development.json
+C:\Users\alexa\Desktop\Ny mapp (3)\NET25-K4U2\AiAssistant\llmproxyapi\bin\Debug\net10.0\appsettings.json
+C:\Users\alexa\Desktop\Ny mapp (3)\NET25-K4U2\AiAssistant\llmproxyapi\bin\Debug\net10.0\LlmProxyApi.staticwebassets.endpoints.json
+C:\Users\alexa\Desktop\Ny mapp (3)\NET25-K4U2\AiAssistant\llmproxyapi\bin\Debug\net10.0\LlmProxyApi.exe
+C:\Users\alexa\Desktop\Ny mapp (3)\NET25-K4U2\AiAssistant\llmproxyapi\bin\Debug\net10.0\LlmProxyApi.deps.json
+C:\Users\alexa\Desktop\Ny mapp (3)\NET25-K4U2\AiAssistant\llmproxyapi\bin\Debug\net10.0\LlmProxyApi.runtimeconfig.json
+C:\Users\alexa\Desktop\Ny mapp (3)\NET25-K4U2\AiAssistant\llmproxyapi\bin\Debug\net10.0\LlmProxyApi.dll
+C:\Users\alexa\Desktop\Ny mapp (3)\NET25-K4U2\AiAssistant\llmproxyapi\bin\Debug\net10.0\LlmProxyApi.pdb
+C:\Users\alexa\Desktop\Ny mapp (3)\NET25-K4U2\AiAssistant\llmproxyapi\bin\Debug\net10.0\Google.Apis.dll
+C:\Users\alexa\Desktop\Ny mapp (3)\NET25-K4U2\AiAssistant\llmproxyapi\bin\Debug\net10.0\Google.Apis.Auth.dll
+C:\Users\alexa\Desktop\Ny mapp (3)\NET25-K4U2\AiAssistant\llmproxyapi\bin\Debug\net10.0\Google.Apis.Core.dll
+C:\Users\alexa\Desktop\Ny mapp (3)\NET25-K4U2\AiAssistant\llmproxyapi\bin\Debug\net10.0\Google.GenAI.dll
+C:\Users\alexa\Desktop\Ny mapp (3)\NET25-K4U2\AiAssistant\llmproxyapi\bin\Debug\net10.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\alexa\Desktop\Ny mapp (3)\NET25-K4U2\AiAssistant\llmproxyapi\bin\Debug\net10.0\Microsoft.Extensions.AI.Abstractions.dll
+C:\Users\alexa\Desktop\Ny mapp (3)\NET25-K4U2\AiAssistant\llmproxyapi\bin\Debug\net10.0\Microsoft.OpenApi.dll
+C:\Users\alexa\Desktop\Ny mapp (3)\NET25-K4U2\AiAssistant\llmproxyapi\bin\Debug\net10.0\Newtonsoft.Json.dll
+C:\Users\alexa\Desktop\Ny mapp (3)\NET25-K4U2\AiAssistant\llmproxyapi\bin\Debug\net10.0\Scalar.AspNetCore.dll
+C:\Users\alexa\Desktop\Ny mapp (3)\NET25-K4U2\AiAssistant\llmproxyapi\bin\Debug\net10.0\System.CodeDom.dll
+C:\Users\alexa\Desktop\Ny mapp (3)\NET25-K4U2\AiAssistant\llmproxyapi\bin\Debug\net10.0\System.Management.dll
+C:\Users\alexa\Desktop\Ny mapp (3)\NET25-K4U2\AiAssistant\llmproxyapi\bin\Debug\net10.0\runtimes\win\lib\net7.0\System.Management.dll
+C:\Users\alexa\Desktop\Ny mapp (3)\NET25-K4U2\AiAssistant\llmproxyapi\obj\Debug\net10.0\LlmProxyApi.csproj.AssemblyReference.cache
+C:\Users\alexa\Desktop\Ny mapp (3)\NET25-K4U2\AiAssistant\llmproxyapi\obj\Debug\net10.0\rpswa.dswa.cache.json
+C:\Users\alexa\Desktop\Ny mapp (3)\NET25-K4U2\AiAssistant\llmproxyapi\obj\Debug\net10.0\LlmProxyApi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\alexa\Desktop\Ny mapp (3)\NET25-K4U2\AiAssistant\llmproxyapi\obj\Debug\net10.0\LlmProxyApi.AssemblyInfoInputs.cache
+C:\Users\alexa\Desktop\Ny mapp (3)\NET25-K4U2\AiAssistant\llmproxyapi\obj\Debug\net10.0\LlmProxyApi.AssemblyInfo.cs
+C:\Users\alexa\Desktop\Ny mapp (3)\NET25-K4U2\AiAssistant\llmproxyapi\obj\Debug\net10.0\LlmProxyApi.csproj.CoreCompileInputs.cache
+C:\Users\alexa\Desktop\Ny mapp (3)\NET25-K4U2\AiAssistant\llmproxyapi\obj\Debug\net10.0\LlmProxyApi.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\alexa\Desktop\Ny mapp (3)\NET25-K4U2\AiAssistant\llmproxyapi\obj\Debug\net10.0\LlmProxyApi.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\alexa\Desktop\Ny mapp (3)\NET25-K4U2\AiAssistant\llmproxyapi\obj\Debug\net10.0\LlmProxyApi.sourcelink.json
+C:\Users\alexa\Desktop\Ny mapp (3)\NET25-K4U2\AiAssistant\llmproxyapi\obj\Debug\net10.0\rjimswa.dswa.cache.json
+C:\Users\alexa\Desktop\Ny mapp (3)\NET25-K4U2\AiAssistant\llmproxyapi\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
+C:\Users\alexa\Desktop\Ny mapp (3)\NET25-K4U2\AiAssistant\llmproxyapi\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
+C:\Users\alexa\Desktop\Ny mapp (3)\NET25-K4U2\AiAssistant\llmproxyapi\obj\Debug\net10.0\scopedcss\bundle\LlmProxyApi.styles.css
+C:\Users\alexa\Desktop\Ny mapp (3)\NET25-K4U2\AiAssistant\llmproxyapi\obj\Debug\net10.0\staticwebassets.build.json
+C:\Users\alexa\Desktop\Ny mapp (3)\NET25-K4U2\AiAssistant\llmproxyapi\obj\Debug\net10.0\staticwebassets.build.json.cache
+C:\Users\alexa\Desktop\Ny mapp (3)\NET25-K4U2\AiAssistant\llmproxyapi\obj\Debug\net10.0\staticwebassets.development.json
+C:\Users\alexa\Desktop\Ny mapp (3)\NET25-K4U2\AiAssistant\llmproxyapi\obj\Debug\net10.0\staticwebassets.build.endpoints.json
+C:\Users\alexa\Desktop\Ny mapp (3)\NET25-K4U2\AiAssistant\llmproxyapi\obj\Debug\net10.0\swae.build.ex.cache
+C:\Users\alexa\Desktop\Ny mapp (3)\NET25-K4U2\AiAssistant\llmproxyapi\obj\Debug\net10.0\LlmProxy.6A518F65.Up2Date
+C:\Users\alexa\Desktop\Ny mapp (3)\NET25-K4U2\AiAssistant\llmproxyapi\obj\Debug\net10.0\LlmProxyApi.dll
+C:\Users\alexa\Desktop\Ny mapp (3)\NET25-K4U2\AiAssistant\llmproxyapi\obj\Debug\net10.0\refint\LlmProxyApi.dll
+C:\Users\alexa\Desktop\Ny mapp (3)\NET25-K4U2\AiAssistant\llmproxyapi\obj\Debug\net10.0\LlmProxyApi.pdb
+C:\Users\alexa\Desktop\Ny mapp (3)\NET25-K4U2\AiAssistant\llmproxyapi\obj\Debug\net10.0\LlmProxyApi.genruntimeconfig.cache
+C:\Users\alexa\Desktop\Ny mapp (3)\NET25-K4U2\AiAssistant\llmproxyapi\obj\Debug\net10.0\ref\LlmProxyApi.dll

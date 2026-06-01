@@ -19,7 +19,9 @@ public sealed class GlobalExceptionHandler
         CancellationToken cancellationToken
     )
     {
+        // First we map the exception to our ApiError record
         var error = StatusCodeMappings.Map(exception);
+
         logger.LogError(exception,"Unhandled Exception! {ExceptionType}",exception.GetType().Name);
         var problem = new ProblemDetails
         {
@@ -32,9 +34,11 @@ public sealed class GlobalExceptionHandler
         };
         problem.Extensions["traceId"] = Activity.Current?.Id ??  ctx.TraceIdentifier;
         if(environment.IsDevelopment()) problem.Extensions["exceptionType"] = exception.GetType().FullName;
-                ctx.Response.StatusCode = error.StatusCode;
+        
+        ctx.Response.StatusCode = error.StatusCode;
 
-        return await problemDetailsService.TryWriteAsync
+        
+        await problemDetailsService.TryWriteAsync
         (
             new ProblemDetailsContext
             {
@@ -43,6 +47,8 @@ public sealed class GlobalExceptionHandler
                 ProblemDetails = problem
             }
         );
+
+        return true;
     }
 }
 
@@ -64,9 +70,30 @@ public static class StatusCodeMappings
             _ => ApiErrors.Unexpected
         };
     }
+    private static ApiError MapGeminiException(GeminiApiException exception)
+    {
+        return exception.GeminiStatus switch
+        {
+            "RESOURCE_EXHAUSTED" => ApiErrors.AiServiceUnavailable,
+            "UNAVAILABLE" => ApiErrors.AiServiceUnavailable,
+            "INTERNAL" => ApiErrors.AiServiceUnavailable,
+
+            "DEADLINE_EXCEEDED" => ApiErrors.AiGatewayTimeout,
+
+            "INVALID_ARGUMENT" => ApiErrors.AiBadGateway,
+            "FAILED_PRECONDITION" => ApiErrors.AiServiceUnavailable,
+            "PERMISSION_DENIED" => ApiErrors.AiBadGateway,
+            "NOT_FOUND" => ApiErrors.AiBadGateway,
+
+            _ => ApiErrors.AiBadGateway
+        };
+    }
  
 }
 
+// I just  mapped this from gemini api docs: https://ai.google.dev/gemini-api/docs/troubleshooting
+public sealed record GeminiError(int Code, string Message, string Status);
+ 
 
 public sealed record ApiError(int StatusCode, string Title, string Detail);
 public static class ApiErrors
@@ -96,4 +123,37 @@ public static class ApiErrors
         StatusCodes.Status500InternalServerError,
         "Unexpected error.",
         "An unexpected server error occurred.");
+
+    // Todo: bör skiljas sen
+    public static readonly ApiError AiServiceUnavailable = new(
+    StatusCodes.Status503ServiceUnavailable,
+    "AI service unavailable.",
+    "The AI service is temporarily unavailable. Please try again later.");
+
+    public static readonly ApiError AiGatewayTimeout = new(
+        StatusCodes.Status504GatewayTimeout,
+        "AI service timeout.",
+        "The AI service did not respond in time. Please try again later.");
+
+    public static readonly ApiError AiBadGateway = new(
+        StatusCodes.Status502BadGateway,
+        "AI service error.",
+        "The AI service returned an invalid or unexpected response.");
+}
+
+public sealed class GeminiApiException : Exception
+{
+    public int? GeminiStatusCode { get; }
+    public string? GeminiStatus { get; }
+
+    public GeminiApiException(
+        string message,
+        int? geminiStatusCode = null,
+        string? geminiStatus = null,
+        Exception? innerException = null)
+        : base(message, innerException)
+    {
+        GeminiStatusCode = geminiStatusCode;
+        GeminiStatus = geminiStatus;
+    } 
 }

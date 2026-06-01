@@ -11,10 +11,10 @@ public class GeminiController(GeminiService service) : ControllerBase
     [HttpPost]
     [ProducesResponseType(typeof(GeminiResponse), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult<GeminiResponse>> Generate([FromBody] GeminiRequest request)
+    public async Task<ActionResult<GeminiResponse>> Generate([FromBody] GeminiRequest request,CancellationToken ct)
     {
         Console.WriteLine($"REQUEST: {request.Prompt}");
-        var response = await _service.GetAiContent(request);
+        var response = await _service.GetAiContent(request,ct);
         Console.WriteLine($"RESPONSE: {response.Result}");
 
         return Ok(response);
