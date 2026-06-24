@@ -1,0 +1,61 @@
+# Build and Object files
+bin/
+obj/
+*.dll
+*.exe
+*.pdb
+
+# Visual Studio / Rider
+.vs/
+.idea/
+*.user
+*.userprefs
+*.sln.iml
+.DS_Store
+
+# Dependencies
+packages/
+.nuget/
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+
+# NuGet
+*.nupkg
+*.snupkg
+*.nuget.props
+*.nuget.targets
+
+appsettings.Development.json
+appsettings.Production.json
+appsettings.Local.json
+appsettings.*.local.json
+
+.user-secrets/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Log files
+*.log
+logs/
+
+# Application Insights
+ApplicationInsights.config
+.ApplicationInsightsConfig
+
+# Local diagnostic output
+diagnostics/
+
+# Runtime error dump files created by the .NET runtime
+*.dmp
