@@ -24,7 +24,8 @@ When a user requests AI-generated topics for a notebook, the Content API forward
   - [LLM Proxy API](#llm-proxy-api-endpoints)
 - [Domain Model](#domain-model)
 - [Key Design Patterns](#key-design-patterns)
-- [Docker](#docker)
+- [LLM workflow and reasoning](#workflow-and-process-regarding-external-llm)
+
 
 ---
 
@@ -193,8 +194,7 @@ $env:GEMINI__APIKEY="your-production-key-here"
 
 set GEMINI__APIKEY=your-production-key-here
 
-# Docker
-docker run -e GEMINI__APIKEY="your-key" my-image
+ 
 ```
 
 > **Note:** ASP.NET Core automatically maps `GEMINI__APIKEY` env var to `appsettings.json` configuration key `Gemini:ApiKey` (double underscore = colon).
