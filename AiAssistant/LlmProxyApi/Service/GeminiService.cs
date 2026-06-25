@@ -1,7 +1,7 @@
 using System.Net.Http.Json;
 using System.Text.Json;
 using Microsoft.Extensions.Configuration;
-namespace LlmProxyApi.Service;
+namespace LlmProxyApi.Service; 
 public class GeminiService
 {
     private readonly HttpClient _http;
@@ -13,20 +13,57 @@ public class GeminiService
       _apiKey = config["Gemini:ApiKey"] ?? "";
   }
  
-  public async Task<GeminiResponse> GetAiContent(GeminiRequest request)
-  {
-      var payload = new { contents = new[] { new { parts = new[] { new { text = request.Prompt } } } } };
-      var response = await _http.PostAsJsonAsync($"v1beta/models/gemini-3-flash-preview:generateContent?key={_apiKey}", payload);
-      response.EnsureSuccessStatusCode();
-      var root = await response.Content.ReadFromJsonAsync<JsonElement>();
-      var resultText = root.GetProperty("candidates")[0]
-                         .GetProperty("content")
-                         .GetProperty("parts")[0]
-                         .GetProperty("text")
-                         .GetString();
+    private static string RedactSnippet(string? content, int maxLength)
+    {
+        if (string.IsNullOrEmpty(content))
+            return "[no content]";
 
-      return new GeminiResponse { Result = resultText ?? "Nothing returned" };
-  }
+        var snippet = content.Length > maxLength ? content.Substring(0, maxLength) : content;
+        try
+        {
+            var pattern = "(?i)(api[_-]?key|authorization|bearer)\\s*[:=]\\s*[^\\s,\"']+";
+            snippet = System.Text.RegularExpressions.Regex.Replace(snippet, pattern, "[REDACTED]");
+        }
+        catch
+        {      }
+
+        return snippet;
+    }
+
+    public async Task<GeminiResponse> GetAiContent(GeminiRequest request, CancellationToken ct = default)
+    {
+      var payload = new { contents = new[] { new { parts = new[] { new { text = request.Prompt } } } } };
+      var response = await _http.PostAsJsonAsync($"v1beta/models/gemini-3-flash-preview:generateContent", payload, ct);
+
+        if (!response.IsSuccessStatusCode)
+        {
+          var content = await response.Content.ReadAsStringAsync(ct);
+          var snippet = RedactSnippet(content, 500);
+          var headers = new Dictionary<string, string?>();
+          foreach (var h in response.Headers)
+            headers[h.Key] = string.Join(",", h.Value);
+          throw new ExternalApiException((int)response.StatusCode, snippet, headers);
+        }
+
+      var root = await response.Content.ReadFromJsonAsync<JsonElement>(cancellationToken: ct);
+      if (root.ValueKind == JsonValueKind.Undefined || root.ValueKind == JsonValueKind.Null)
+        throw new HttpRequestException("Empty JSON response from Gemini.");
+
+      if (!root.TryGetProperty("candidates", out var candidates) || candidates.ValueKind != JsonValueKind.Array || candidates.GetArrayLength() == 0)
+        throw new HttpRequestException("Gemini response missing 'candidates'.");
+
+      var first = candidates[0];
+      if (!first.TryGetProperty("content", out var contentProp) ||
+        !contentProp.TryGetProperty("parts", out var parts) ||
+        parts.ValueKind != JsonValueKind.Array ||
+        parts.GetArrayLength() == 0)
+      {
+        throw new HttpRequestException("Gemini response has unexpected shape (missing content.parts).");
+      }
+
+      var text = parts[0].TryGetProperty("text", out var textProp) ? textProp.GetString() : null;
+      return new GeminiResponse { Result = text ?? "Nothing returned" };
+    }
 }
 
 

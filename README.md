@@ -161,19 +161,60 @@ AiAssistant/
 
 ### Configuration
 
-1. **Set your Gemini API key** in the LLM Proxy API:
+#### 1. Gemini API Key Setup (Local Development)
 
-   Edit `LlmProxyApi/appsettings.Development.json`:
+**You must set your Gemini API key before running the services.**
 
-   ```json
-   {
-     "Gemini": {
-       "ApiKey": "YOUR_GEMINI_API_KEY"
-     }
-   }
-   ```
+**Option A: Using .NET User Secrets** 
 
-2. **LLM prompt configuration** can be customized in `ContentApi/appsettings.json` (or the `Development` override) under the `LlmPrompts` section:
+User Secrets store sensitive configuration safely on your machine, completely outside version control.
+
+```bash
+# Navigate to the LLM Proxy API project
+cd LlmProxyApi
+
+dotnet user-secrets set "Gemini:ApiKey" "api-key"
+
+dotnet user-secrets list
+```
+
+> **Where are User Secrets stored?**
+> - **Windows:** `%APPDATA%\Microsoft\UserSecrets\<project-guid>\secrets.json`
+> - **Linux/macOS:** `~/.microsoft/usersecrets/<project-guid>/secrets.json`
+
+#### 2. Production Deployment
+
+In production, set the Gemini API key via **environment variables**:
+
+```bash
+export GEMINI__APIKEY="your-production-key-here"
+
+$env:GEMINI__APIKEY="your-production-key-here"
+
+set GEMINI__APIKEY=your-production-key-here
+
+# Docker
+docker run -e GEMINI__APIKEY="your-key" my-image
+```
+
+> **Note:** ASP.NET Core automatically maps `GEMINI__APIKEY` env var to `appsettings.json` configuration key `Gemini:ApiKey` (double underscore = colon).
+
+#### 3. API Key Security Guarantees
+
+ **What we do:**
+- Never log the API key or Authorization headers
+- User Secrets isolate keys from version control
+- `ExternalApiException` omits key details in error responses
+- Configuration is read securely at startup
+
+ **What you must ensure:**
+- Always use User Secrets locally (never hardcode in source)
+- Never commit `appsettings.Development.json` with a real key
+- In production, use environment variables or secure key management (e.g., Azure Key Vault)
+
+#### 4. LLM Prompt Configuration
+
+**LLM prompt configuration** can be customized in `ContentApi/appsettings.json` (or the `Development` override) under the `LlmPrompts` section:
 
    ```json
    {

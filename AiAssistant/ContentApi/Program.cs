@@ -1,5 +1,7 @@
 using AiAssistant.ContentApi.Data;
+using System;
 using ContentApi.DTO;
+using ContentApi.Infrastructure.Middleware;
 using ContentApi.Projection;
 using ContentApi.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -18,9 +20,13 @@ builder.Services.Configure<LlmPromptOptions>(
 
 builder.Services.AddScoped<ITopicPromptBuilder, TopicPromptBuilder>();
 
+
+var llmProxyBase = builder.Configuration["LlmProxy:BaseUrl"] ?? "http://localhost:5002/";
+var llmProxyTimeout = builder.Configuration.GetValue<int?>("LlmProxy:TimeoutSeconds") ?? 10;
 builder.Services.AddHttpClient<ILlmClient, LlmClient>(client =>
 {
-    client.BaseAddress = new Uri("http://localhost:5002/");
+    client.BaseAddress = new Uri(llmProxyBase);
+    client.Timeout = TimeSpan.FromSeconds(llmProxyTimeout);
 });
 
 builder.Services.AddOpenApi();
@@ -55,7 +61,7 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
     app.MapScalarApiReference();
 }
-
+app.UseMiddleware<CustomMiddleware>();
 app.UseHttpsRedirection();
 app.UseAuthorization();
 
