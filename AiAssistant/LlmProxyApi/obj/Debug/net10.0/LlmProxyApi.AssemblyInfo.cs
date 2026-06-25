@@ -10,10 +10,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("15ba05e4-1e2b-4837-abbb-5f5d3219bd3e")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("LlmProxyApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+86c4026d3208094dcb8d63cb10b9ccc029b97b3a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c07ddb1454c32b45fa124f77f4ceb0218b8649bb")]
 [assembly: System.Reflection.AssemblyProductAttribute("LlmProxyApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LlmProxyApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

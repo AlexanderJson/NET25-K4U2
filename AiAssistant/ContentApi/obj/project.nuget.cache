@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TXczkd+bJhA=",
+  "dgSpecHash": "vHJNdknRyj4=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Alexa\\Desktop\\skola\\NET25-K4U2\\AiAssistant\\ContentApi\\ContentApi.csproj",
+  "projectFilePath": "C:\\Users\\Alexa\\Desktop\\skola\\Ny mapp\\NET25-K4U2\\aiassistant\\contentapi\\ContentApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Alexa\\.nuget\\packages\\bcrypt.net-next\\4.1.0\\bcrypt.net-next.4.1.0.nupkg.sha512",
     "C:\\Users\\Alexa\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\10.0.6\\microsoft.aspnetcore.authentication.jwtbearer.10.0.6.nupkg.sha512",

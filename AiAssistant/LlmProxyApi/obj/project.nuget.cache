@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Znq5OVTCkTM=",
+  "dgSpecHash": "sUMd/fydZ24=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Alexa\\Desktop\\skola\\NET25-K4U2\\AiAssistant\\LlmProxyApi\\LlmProxyApi.csproj",
+  "projectFilePath": "C:\\Users\\Alexa\\Desktop\\skola\\Ny mapp\\NET25-K4U2\\aiassistant\\llmproxyapi\\LlmProxyApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Alexa\\.nuget\\packages\\google.apis\\1.69.0\\google.apis.1.69.0.nupkg.sha512",
     "C:\\Users\\Alexa\\.nuget\\packages\\google.apis.auth\\1.69.0\\google.apis.auth.1.69.0.nupkg.sha512",

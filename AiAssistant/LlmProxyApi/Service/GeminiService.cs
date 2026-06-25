@@ -33,7 +33,7 @@ public class GeminiService
     public async Task<GeminiResponse> GetAiContent(GeminiRequest request, CancellationToken ct = default)
     {
       var payload = new { contents = new[] { new { parts = new[] { new { text = request.Prompt } } } } };
-      var response = await _http.PostAsJsonAsync($"v1beta/models/gemini-3-flash-preview:generateContent", payload, ct);
+      var response = await _http.PostAsJsonAsync($"v1beta/models/gemini-3-flash-preview:generateContent?key={_apiKey}", payload, ct);
 
         if (!response.IsSuccessStatusCode)
         {

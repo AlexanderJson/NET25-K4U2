@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Alexa\\Desktop\\skola\\NET25-K4U2\\AiAssistant\\ContentApi\\ContentApi.csproj": {}
+    "C:\\Users\\Alexa\\Desktop\\skola\\Ny mapp\\NET25-K4U2\\aiassistant\\contentapi\\ContentApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Alexa\\Desktop\\skola\\NET25-K4U2\\AiAssistant\\ContentApi\\ContentApi.csproj": {
+    "C:\\Users\\Alexa\\Desktop\\skola\\Ny mapp\\NET25-K4U2\\aiassistant\\contentapi\\ContentApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Alexa\\Desktop\\skola\\NET25-K4U2\\AiAssistant\\ContentApi\\ContentApi.csproj",
+        "projectUniqueName": "C:\\Users\\Alexa\\Desktop\\skola\\Ny mapp\\NET25-K4U2\\aiassistant\\contentapi\\ContentApi.csproj",
         "projectName": "ContentApi",
-        "projectPath": "C:\\Users\\Alexa\\Desktop\\skola\\NET25-K4U2\\AiAssistant\\ContentApi\\ContentApi.csproj",
+        "projectPath": "C:\\Users\\Alexa\\Desktop\\skola\\Ny mapp\\NET25-K4U2\\aiassistant\\contentapi\\ContentApi.csproj",
         "packagesPath": "C:\\Users\\Alexa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Alexa\\Desktop\\skola\\NET25-K4U2\\AiAssistant\\ContentApi\\obj\\",
+        "outputPath": "C:\\Users\\Alexa\\Desktop\\skola\\Ny mapp\\NET25-K4U2\\aiassistant\\contentapi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
