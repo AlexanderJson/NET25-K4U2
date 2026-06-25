@@ -187,13 +187,10 @@ dotnet user-secrets list
 In production, set the Gemini API key via **environment variables**:
 
 ```bash
-# Linux / macOS
 export GEMINI__APIKEY="your-production-key-here"
 
-# Windows (PowerShell)
 $env:GEMINI__APIKEY="your-production-key-here"
 
-# Windows (Command Prompt)
 set GEMINI__APIKEY=your-production-key-here
 
 # Docker
