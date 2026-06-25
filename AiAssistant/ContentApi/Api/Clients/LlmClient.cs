@@ -6,6 +6,7 @@ public sealed class LlmClient(HttpClient httpClient) : ILlmClient
 {
     private readonly HttpClient _httpClient = httpClient;
 
+//todo replace with smarter solutino later!
     private static string RedactSnippet(string? content, int maxLength)
     {
         if (string.IsNullOrEmpty(content))

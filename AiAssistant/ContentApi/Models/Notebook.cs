@@ -5,7 +5,8 @@ namespace ContentApi.Models;
 public class Notebook
 {
     public Guid Id { get; private set; }
-
+    public const int MaxTitleLength = 80;
+    public const int MaxCategoryLength = 80;
     public  string Category { get; private set; }
 
     public  string Title { get; private set; }
@@ -33,15 +34,21 @@ public class Notebook
        Guard.Against.NullOrEmptyGuid(userId);
 
         Id = Guid.NewGuid();
-        Category = category.Trim();
-        Title = title.Trim();
+        category = category.Trim();
+        title = title.Trim();
+        CheckCharLength(title, MaxTitleLength);
+        CheckCharLength(category, MaxCategoryLength);
+        Category = category;
+        Title = title;
         UserId = userId;
     }
 
     public void UpdateTitle(string title)
     {
         Guard.Against.NullOrWhiteSpace(title);
-        Title = title.Trim();
+        title = title.Trim();
+        CheckCharLength(title, MaxTitleLength);
+        Title = title;
     }
 
 
@@ -53,5 +60,10 @@ public class Notebook
         _topics.Add(topic);
     }
 
+    private void CheckCharLength(string input, int maxLength)
+    {
+        if (input.Length > maxLength)
+            throw new ArgumentException($"{input} exceeds maximum length of {maxLength} characters.");
+    }
 
 }
